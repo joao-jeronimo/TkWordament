@@ -24,4 +24,14 @@ def preprocess(in_wordlist):
         return seps_wordlist
 
 
-
+def dumpfrom(infile, outfile):
+        ptpt      = open(infile)
+        ptptlines = ptpt.readlines()
+        ptpt.close()
+        proced    = preprocess(ptptlines)
+        proced.sort()
+        towrite   = str(proced)
+        out       = open(outfile, "w")
+        out.write("wordlist=")
+        out.write(towrite)
+        out.close()

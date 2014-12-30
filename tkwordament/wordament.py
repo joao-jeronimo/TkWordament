@@ -1,5 +1,6 @@
 
-from english import wordlist
+from portugues import wordlist
+#from english import wordlist
 
 NUM_LINS = 4
 NUM_COLS = 4

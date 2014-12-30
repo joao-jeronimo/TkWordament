@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+DEBUG=False
 
 import Tkinter as tk
 import wordament
@@ -27,7 +28,7 @@ class Letter(object):
         def addMeToMarklist(self):
                 if self in self.game.marked:       # Clicking twice on the same square!.....
                         return
-                print "hello " + str(self.letter) + "! from lin=" + str(self.lin) + "and col=" + str(self.col)
+                if DEBUG:print"hello "+str(self.letter)+"!from lin="+str(self.lin)+"and col="+str(self.col)
                 if self.game.curcolor >= 0:
                         lastsquare = self.game.marked[-1]
                         lastcoords = (lastsquare.lin, lastsquare.col)
@@ -75,7 +76,7 @@ class Application(tk.Frame):
                 # When the user doubleclicks, this gets called to find out the selected word...
                 def commitword(self):
                         word = "".join(map(lambda(sqr):sqr.letter, self.marked))
-                        print ("Entered word: " + word)
+                        if DEBUG:print("Entered word: "+word)
                         if word in self.puzzle[1]:
                                 # User hit a word
                                 if word not in self.foundwords:
@@ -151,5 +152,5 @@ class Application(tk.Frame):
 
 app = Application(puzzle = wordament.gengame(wordament.wordlist))
 app.master.resizable(width="FALSE", height="FALSE")
-app.master.title('Wordament')
+app.master.title('TkWordament')
 app.mainloop()
