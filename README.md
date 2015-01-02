@@ -8,7 +8,7 @@ How to run?
 ===========
 
 Just run "gui.py" Python script.
-   python guy.py
+   python gui.py
 
 How to add a new language?
 ==========================
